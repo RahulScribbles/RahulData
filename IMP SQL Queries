@@ -1,0 +1,204 @@
+Create table employees (
+    EId Int,
+    Name varchar(255),
+    City varchar(255),
+    salary Int,
+    DOJ Date
+);
+
+INSERT INTO employees
+VALUES
+(1, 'Atish', 'Pune', 50000, '2023-01-25'),
+(2, 'Prakash', 'Munmabi', 45000, '2023-01-29'),
+(3, 'Sunil', 'Nashik', 48000, '2023-02-25'),
+(5, 'Akash', 'Sangli', 47000, '2023-03-12'),
+(6, 'Amol', 'Dhule', 44000, '2023-04-23'),
+(7, 'Pallavi', 'Nagpur', 43000, '2023-04-28'),
+(8, 'Akshara', 'Solapur', 38000, '2023-05-12'),
+(9, 'Sameer', 'jalgaon', 40000, '2023-06-14'),
+(10, 'seema', 'satara', 41000, '2023-06-25');
+
+
+
+
+
+Q1. Find maximum salary of employee.
+
+Query: 
+
+select * from employees where salary=(select max(Salary) from employees);
+1
+Atish
+Pune
+50000
+2023-01-25
+
+
+Q2 . Find second Maximum salary of employee?
+
+Query:
+
+select * from employees where salary=(select max(Salary) from employees where salary<(select max(salary) from employees));
+
+
+3
+Sunil
+Nashik
+48000
+2023-02-25
+
+Q3.  Retrive all the information of employee whose name begins with 'A'?
+
+
+Query:  
+
+
+SELECT * from employees where Name like'a%';
+
+"Like" Operator is used
+
+
+1
+Atish
+Pune
+50000
+2023-01-25
+5
+Akash
+Sangli
+47000
+2023-03-12
+6
+Amol
+Dhule
+44000
+2023-04-23
+8
+Akshara
+Solapur
+38000
+2023-05-12
+
+
+
+
+Q4. select all the information of employees whoes the salary is 45000, 41000 and 47000? 
+
+
+Query :
+
+SELECT * from employees where salary in(45000,41000,47000);
+
+
+"in" operator is used
+
+
+2
+Prakash
+Munmabi
+45000
+2023-01-29
+5
+Akash
+Sangli
+47000
+2023-03-12
+10
+seema
+satara
+41000
+2023-06-25
+
+
+
+
+Q5.  Create a New table with the help of existing table data and structure?
+
+
+query:  
+
+create table emp2 as select * from employees;
+
+
+Q6.  Find all employees records whose salary is between 41000 to 48000 ?
+
+
+Query:
+
+select * from employees where salary between 41000 and 48000;
+
+
+2
+Prakash
+Munmabi
+45000
+2023-01-29
+3
+Sunil
+Nashik
+48000
+2023-02-25
+5
+Akash
+Sangli
+47000
+2023-03-12
+6
+Amol
+Dhule
+44000
+2023-04-23
+7
+Pallavi
+Nagpur
+43000
+2023-04-28
+10
+seema
+satara
+41000
+2023-06-25
+
+
+
+
+Q7.  Write a SQL Query to delete more than one record?
+
+
+Query:
+
+delete from emp2 where EID in (2, 6, 9);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
